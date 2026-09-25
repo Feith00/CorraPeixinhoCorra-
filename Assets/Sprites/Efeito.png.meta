@@ -1,0 +1,949 @@
+fileFormatVersion: 2
+guid: f6d997f0841d42445865d92830bdc292
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -5385290697374423380
+    second: Efeito_0
+  - first:
+      213: -257726023225579015
+    second: Efeito_1
+  - first:
+      213: 6288258219375610228
+    second: Efeito_2
+  - first:
+      213: -7777713158910281814
+    second: Efeito_3
+  - first:
+      213: -5395817533881508091
+    second: Efeito_4
+  - first:
+      213: 6357752117601087799
+    second: Efeito_5
+  - first:
+      213: 2159196511615895594
+    second: Efeito_6
+  - first:
+      213: -1692162285085275525
+    second: Efeito_7
+  - first:
+      213: 5859915524931752520
+    second: Efeito_8
+  - first:
+      213: 4349105700981224113
+    second: Efeito_9
+  - first:
+      213: -7883899167810894743
+    second: Efeito_10
+  - first:
+      213: -3696550135868407887
+    second: Efeito_11
+  - first:
+      213: 6628386570885140873
+    second: Efeito_12
+  - first:
+      213: 2880263519092900008
+    second: Efeito_13
+  - first:
+      213: 4593402679705473346
+    second: Efeito_14
+  - first:
+      213: -5039616440851517507
+    second: Efeito_15
+  - first:
+      213: -7949058421789360633
+    second: Efeito_16
+  - first:
+      213: 3812242005919144089
+    second: Efeito_17
+  - first:
+      213: -2565436454216105453
+    second: Efeito_18
+  - first:
+      213: -3187867074297399750
+    second: Efeito_19
+  - first:
+      213: -2811117339377414512
+    second: Efeito_20
+  - first:
+      213: 5410884091708961478
+    second: Efeito_21
+  - first:
+      213: 8147912608275491861
+    second: Efeito_22
+  - first:
+      213: -930695515359216692
+    second: Efeito_23
+  - first:
+      213: -4012944089747157865
+    second: Efeito_24
+  - first:
+      213: -2151962250704519536
+    second: Efeito_25
+  - first:
+      213: 2217676386598221134
+    second: Efeito_26
+  - first:
+      213: 2582590876921553145
+    second: Efeito_27
+  - first:
+      213: -8333976037195454964
+    second: Efeito_28
+  - first:
+      213: -807665245338763371
+    second: Efeito_29
+  - first:
+      213: 1795632901547313349
+    second: Efeito_30
+  - first:
+      213: -532908303345818397
+    second: Efeito_31
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 1
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 4
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Efeito_0
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 86
+        width: 34
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ca628caa4aa9345b0800000000000000
+      internalID: -5385290697374423380
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Efeito_1
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 91
+        width: 32
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9f9e3402c8f5c6cf0800000000000000
+      internalID: -257726023225579015
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Efeito_2
+      rect:
+        serializedVersion: 2
+        x: 38
+        y: 70
+        width: 40
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 47940dda881644750800000000000000
+      internalID: 6288258219375610228
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Efeito_3
+      rect:
+        serializedVersion: 2
+        x: 77
+        y: 103
+        width: 25
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: aa7754e0713001490800000000000000
+      internalID: -7777713158910281814
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Efeito_4
+      rect:
+        serializedVersion: 2
+        x: 101
+        y: 81
+        width: 15
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 50f1b2c8a843e15b0800000000000000
+      internalID: -5395817533881508091
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Efeito_5
+      rect:
+        serializedVersion: 2
+        x: 104
+        y: 105
+        width: 11
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 731b99bbdd54b3850800000000000000
+      internalID: 6357752117601087799
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Efeito_6
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 86
+        width: 7
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a28c02399c107fd10800000000000000
+      internalID: 2159196511615895594
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Efeito_7
+      rect:
+        serializedVersion: 2
+        x: 18
+        y: 81
+        width: 16
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b7acd2ffd5b3488e0800000000000000
+      internalID: -1692162285085275525
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Efeito_8
+      rect:
+        serializedVersion: 2
+        x: 78
+        y: 72
+        width: 7
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8429a5d6f1a925150800000000000000
+      internalID: 5859915524931752520
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Efeito_9
+      rect:
+        serializedVersion: 2
+        x: 94
+        y: 89
+        width: 7
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1b2bc9da7902b5c30800000000000000
+      internalID: 4349105700981224113
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Efeito_10
+      rect:
+        serializedVersion: 2
+        x: 13
+        y: 68
+        width: 7
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 96442a14a73c69290800000000000000
+      internalID: -7883899167810894743
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Efeito_11
+      rect:
+        serializedVersion: 2
+        x: 88
+        y: 78
+        width: 21
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1bf34219c3733bcc0800000000000000
+      internalID: -3696550135868407887
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Efeito_12
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 62
+        width: 14
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 981149fa772ccfb50800000000000000
+      internalID: 6628386570885140873
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Efeito_13
+      rect:
+        serializedVersion: 2
+        x: 13
+        y: 44
+        width: 18
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8a08c0b0960c8f720800000000000000
+      internalID: 2880263519092900008
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Efeito_14
+      rect:
+        serializedVersion: 2
+        x: 29
+        y: 58
+        width: 12
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2411c2a766b0fbf30800000000000000
+      internalID: 4593402679705473346
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Efeito_15
+      rect:
+        serializedVersion: 2
+        x: 46
+        y: 56
+        width: 14
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dbfa3de4c8faf0ab0800000000000000
+      internalID: -5039616440851517507
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Efeito_16
+      rect:
+        serializedVersion: 2
+        x: 51
+        y: 51
+        width: 24
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 70efa663b754fa190800000000000000
+      internalID: -7949058421789360633
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Efeito_17
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 44
+        width: 32
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 99812a008edc7e430800000000000000
+      internalID: 3812242005919144089
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Efeito_18
+      rect:
+        serializedVersion: 2
+        x: 95
+        y: 62
+        width: 25
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3128c9c132db56cd0800000000000000
+      internalID: -2565436454216105453
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Efeito_19
+      rect:
+        serializedVersion: 2
+        x: 29
+        y: 46
+        width: 7
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a36f65539cb62c3d0800000000000000
+      internalID: -3187867074297399750
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Efeito_20
+      rect:
+        serializedVersion: 2
+        x: 37
+        y: 25
+        width: 16
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 09ec77c7ca7ecf8d0800000000000000
+      internalID: -2811117339377414512
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Efeito_21
+      rect:
+        serializedVersion: 2
+        x: 38
+        y: 39
+        width: 9
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6c2ff1fc962571b40800000000000000
+      internalID: 5410884091708961478
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Efeito_22
+      rect:
+        serializedVersion: 2
+        x: 50
+        y: 31
+        width: 18
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 51cef250953331170800000000000000
+      internalID: 8147912608275491861
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Efeito_23
+      rect:
+        serializedVersion: 2
+        x: 70
+        y: 14
+        width: 34
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ccbf6fc1c518513f0800000000000000
+      internalID: -930695515359216692
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Efeito_24
+      rect:
+        serializedVersion: 2
+        x: 105
+        y: 38
+        width: 15
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 79c0e13ac982f48c0800000000000000
+      internalID: -4012944089747157865
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Efeito_25
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 34
+        width: 17
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 09ef4bc0cb1b222e0800000000000000
+      internalID: -2151962250704519536
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Efeito_26
+      rect:
+        serializedVersion: 2
+        x: 12
+        y: 27
+        width: 19
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e4575f18ce4c6ce10800000000000000
+      internalID: 2217676386598221134
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Efeito_27
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 24
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9f0e21b28b437d320800000000000000
+      internalID: 2582590876921553145
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Efeito_28
+      rect:
+        serializedVersion: 2
+        x: 39
+        y: 3
+        width: 27
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c06e85013f4c75c80800000000000000
+      internalID: -8333976037195454964
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Efeito_29
+      rect:
+        serializedVersion: 2
+        x: 74
+        y: 0
+        width: 7
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 59f77221db89ac4f0800000000000000
+      internalID: -807665245338763371
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Efeito_30
+      rect:
+        serializedVersion: 2
+        x: 100
+        y: 16
+        width: 20
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5c84bbb3c9e5be810800000000000000
+      internalID: 1795632901547313349
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Efeito_31
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 0
+        width: 10
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3e46739b8baba98f0800000000000000
+      internalID: -532908303345818397
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Efeito_0: -5385290697374423380
+      Efeito_1: -257726023225579015
+      Efeito_10: -7883899167810894743
+      Efeito_11: -3696550135868407887
+      Efeito_12: 6628386570885140873
+      Efeito_13: 2880263519092900008
+      Efeito_14: 4593402679705473346
+      Efeito_15: -5039616440851517507
+      Efeito_16: -7949058421789360633
+      Efeito_17: 3812242005919144089
+      Efeito_18: -2565436454216105453
+      Efeito_19: -3187867074297399750
+      Efeito_2: 6288258219375610228
+      Efeito_20: -2811117339377414512
+      Efeito_21: 5410884091708961478
+      Efeito_22: 8147912608275491861
+      Efeito_23: -930695515359216692
+      Efeito_24: -4012944089747157865
+      Efeito_25: -2151962250704519536
+      Efeito_26: 2217676386598221134
+      Efeito_27: 2582590876921553145
+      Efeito_28: -8333976037195454964
+      Efeito_29: -807665245338763371
+      Efeito_3: -7777713158910281814
+      Efeito_30: 1795632901547313349
+      Efeito_31: -532908303345818397
+      Efeito_4: -5395817533881508091
+      Efeito_5: 6357752117601087799
+      Efeito_6: 2159196511615895594
+      Efeito_7: -1692162285085275525
+      Efeito_8: 5859915524931752520
+      Efeito_9: 4349105700981224113
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
