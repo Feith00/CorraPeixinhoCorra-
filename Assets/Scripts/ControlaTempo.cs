@@ -1,6 +1,7 @@
 using UnityEngine;
-using System.Collections; 
-public class ControlaTempo : MonoBehaviour
+using System.Collections;
+
+public class ControlaTempo : MonoBehaviour 
 {
     [SerializeField] private float velocidadeReduzida = 0.5f;
     [SerializeField] private float duracaoCameraLenta = 5.0f;
@@ -9,13 +10,17 @@ public class ControlaTempo : MonoBehaviour
     private bool emCameraLenta = false;
     private Coroutine cameraLentaCoroutine = null;
 
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerEnter2D(Collider2D col) // Corrigido para Collider2D
     {
-        if (other.CompareTag("Player"))
+        // Corrigido: Assegure-se de que a tag "Player" está entre aspas simples/duplas corretamente
+        if (col.CompareTag("Player")) 
         {
+            GetComponent<Collider2D>().enabled = false;
+            GetComponent<SpriteRenderer>().enabled = false;
             if (cameraLentaCoroutine != null)
+            {
                 StopCoroutine(cameraLentaCoroutine);
-
+            }
             IniciarCameraLenta();
         }
     }
@@ -23,27 +28,29 @@ public class ControlaTempo : MonoBehaviour
     private void IniciarCameraLenta()
     {
         if (emCameraLenta) return;
-
         emCameraLenta = true;
         cameraLentaCoroutine = StartCoroutine(CicloCameraLenta());
     }
 
     private IEnumerator CicloCameraLenta()
     {
-       
         AtivarCameraLentaLogic();
-
         
-        yield return new WaitForSeconds(duracaoCameraLenta);
+        // OBRIGATÓRIO: Usar tempo real, senão os 5 segundos viram 10 segundos no jogo desacelerado
+        yield return new WaitForSecondsRealtime(duracaoCameraLenta);
 
-       
+
         DesativarCameraLentaLogic();
+        
+        // Destrói o objeto após normalizar o tempo de forma segura
+        Destroy(this.gameObject);
     }
 
     private void AtivarCameraLentaLogic()
     {
         Time.timeScale = velocidadeReduzida;
         Time.fixedDeltaTime = fixedDeltaTimeNormal * velocidadeReduzida;
+        
     }
 
     private void DesativarCameraLentaLogic()
@@ -56,10 +63,7 @@ public class ControlaTempo : MonoBehaviour
 
     private void OnDisable()
     {
-      
-        if (cameraLentaCoroutine != null)
-            StopCoroutine(cameraLentaCoroutine);
-        
+        // Se o objeto for destruído ou desativado inesperadamente, garante que o jogo não fique em câmera lenta para sempre
         DesativarCameraLentaLogic();
     }
 }
