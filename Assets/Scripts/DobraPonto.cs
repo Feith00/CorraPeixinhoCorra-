@@ -17,7 +17,7 @@ public class DobraPonto : MonoBehaviour
                 // Ativa o efeito de dobrar os pontos no jogador
                 handler.AtivarDobra(duration);
                 
-                // Destrói este item coletável da cena
+                // Destrói este item coletável da cen
                 Destroy(gameObject);
             }
         }
