@@ -31,6 +31,9 @@ public class PlayerScript : MonoBehaviour
     private float dashTimer;
     private float cooldownTimer;
     private bool canTakeDamage = true;
+    
+    // Nova variável para controlar a imortalidade do coletável
+    private bool isPowerUpInvincible = false; 
 
     void Start()
     {
@@ -45,7 +48,6 @@ public class PlayerScript : MonoBehaviour
 
     void Update()
     {
-        // Se estiver morto, verifica se o jogador quer voltar ao jogo
         if (isDead)
         {
             if (Input.GetKeyDown(KeyCode.Space))
@@ -79,7 +81,7 @@ public class PlayerScript : MonoBehaviour
     {
         if (isDead) 
         {
-            rb.linearVelocity = Vector2.zero; // Mantém parado
+            rb.linearVelocity = Vector2.zero;
             return;
         }
 
@@ -87,7 +89,6 @@ public class PlayerScript : MonoBehaviour
         {
             rb.MovePosition(rb.position + movement * dashSpeed * Time.fixedDeltaTime);
             
-            // Desativa a área de dano durante o Dash
             if (damegeArea != null) damegeArea.SetActive(false);
 
             dashTimer -= Time.fixedDeltaTime;
@@ -95,21 +96,25 @@ public class PlayerScript : MonoBehaviour
             if (dashTimer <= 0)
             {
                 isDashing = false;
-                if (canTakeDamage && damegeArea != null) damegeArea.SetActive(true);
+                // Só reativa a área de dano se o player NÃO estiver sob efeito do power-up
+                if (canTakeDamage && !isPowerUpInvincible && damegeArea != null) 
+                    damegeArea.SetActive(true);
             }
         }
         else
         {
             rb.MovePosition(rb.position + movement * speed * Time.fixedDeltaTime);
             
-            if (canTakeDamage && damegeArea != null && !damegeArea.activeSelf)
+            // Só reativa a área de dano se o player NÃO estiver sob efeito do power-up
+            if (canTakeDamage && !isPowerUpInvincible && damegeArea != null && !damegeArea.activeSelf)
                 damegeArea.SetActive(true);
         }
     }
 
     public void TakeDamage()
     {
-        if (!canTakeDamage || isDashing) return;
+        // Se estiver imortal pelo powerup, tomando dano normal ou dando dash, ignora
+        if (isPowerUpInvincible || !canTakeDamage || isDashing) return;
 
         life--;
         AtualizarCoracoes();
@@ -127,6 +132,45 @@ public class PlayerScript : MonoBehaviour
         Invoke(nameof(EnableDamage), damageCooldown);
     }
 
+    // --- NOVAS FUNÇÕES PARA O COLETÁVEL DE IMORTALIDADE ---
+    public void ActivatePowerUpInvincibility(float duration)
+    {
+        // Evita bugs caso ele pegue outro coletável idêntico antes do primeiro acabar
+        StopCoroutine(nameof(PowerUpInvincibilityRoutine)); 
+        StartCoroutine(PowerUpInvincibilityRoutine(duration));
+    }
+
+    private IEnumerator PowerUpInvincibilityRoutine(float duration)
+    {
+        isPowerUpInvincible = true;
+        canTakeDamage = false; // Bloqueia o TakeDamage padrão
+        
+        if (damegeArea != null) damegeArea.SetActive(false); // Desativa área de dano
+
+        float timer = 0f;
+        // Faz o player piscar durante todo o tempo do Power-up
+        while (timer < duration)
+        {
+            sprite.enabled = !sprite.enabled;
+            yield return new WaitForSeconds(blinkSpeed);
+            timer += blinkSpeed;
+        }
+
+        // Restaura o estado normal do player após o fim do tempo
+        sprite.enabled = true;
+        isPowerUpInvincible = false;
+        canTakeDamage = true;
+
+        if (!isDashing && damegeArea != null) 
+            damegeArea.SetActive(true);
+    }
+    // -----------------------------------------------------
+
+    void AltualizarCoracoes() // Mantido o nome original do seu script (caso use em outros cantos)
+    {
+        AtualizarCoracoes();
+    }
+
     void AtualizarCoracoes()
     {
         if (coracoesUI != null)
@@ -140,16 +184,20 @@ public class PlayerScript : MonoBehaviour
 
     IEnumerator Blink()
     {
-        while (!canTakeDamage)
+        // O Blink normal de dano só acontece se não estiver com o Power-up ativo
+        while (!canTakeDamage && !isPowerUpInvincible)
         {
             sprite.enabled = !sprite.enabled;
             yield return new WaitForSeconds(blinkSpeed);
         }
-        sprite.enabled = true;
+        if (!isPowerUpInvincible) sprite.enabled = true;
     }
 
     void EnableDamage()
     {
+        // Só reativa por aqui se o power-up não estiver rodando em paralelo
+        if (isPowerUpInvincible) return;
+
         canTakeDamage = true;
         if (!isDashing && damegeArea != null) 
             damegeArea.SetActive(true);
@@ -160,36 +208,26 @@ public class PlayerScript : MonoBehaviour
         if (isDead) yield break;
         isDead = true;
 
-        // 1. Para o movimento imediatamente
         rb.linearVelocity = Vector2.zero;
         movement = Vector2.zero;
 
-        // 2. Mostra a Tela de Morte
         MostrarTeladeMorte(true);
-
-        // 3. Remove a espera automática. Agora o jogo fica parado 
-        // esperando o jogador apertar Espaço.
         yield break;
     }
 
     void ResurreccionarJogador()
     {
-        // 1. Reseta o Jogador
         transform.position = startPosition;
         life = 3; 
         AtualizarCoracoes();
 
-        // 2. Esconde a Tela de Morte
         MostrarTeladeMorte(false);
 
-        // 3. Libera o jogador
         canTakeDamage = true;
+        isPowerUpInvincible = false; // Garante reset do powerup na morte
         isDead = false;
 
-        // Reativa área de dano
         if (damegeArea != null) damegeArea.SetActive(true);
-        
-        // Garante que o sprite esteja visível
         sprite.enabled = true;
     }
 
