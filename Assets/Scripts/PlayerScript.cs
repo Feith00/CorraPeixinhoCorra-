@@ -245,9 +245,17 @@ public class PlayerScript : MonoBehaviour
 
     void ViraSprite()
     {
-        if (movement.x > 0)
-            transform.localScale = Vector3.one;
-        else if (movement.x < 0)
-            transform.localScale = new Vector3(-1, 1, 1);
+    Vector3 escalaAtual = transform.localScale;
+
+    if (movement.x > 0)
+    {
+        
+        transform.localScale = new Vector3(Mathf.Abs(escalaAtual.x), escalaAtual.y, escalaAtual.z);
+    }
+    else if (movement.x < 0)
+    {
+        
+        transform.localScale = new Vector3(-Mathf.Abs(escalaAtual.x), escalaAtual.y, escalaAtual.z);
+    }
     }
 }

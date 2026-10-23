@@ -8,6 +8,9 @@ public class DamageArea : MonoBehaviour
 
         var player = other.GetComponentInParent<PlayerScript>();
         var controlador = GetComponentInParent<AnzolController>();
+        var controladorPerseguidor = GetComponentInParent<Perseguidor>();
+
+        if (controlador != null || controladorPerseguidor != null)
 
         if (controlador != null)
         {

@@ -12,6 +12,11 @@ public class PointScript : MonoBehaviour
             PlayerPointsHandler handler = col.GetComponent<PlayerPointsHandler>();
             
             int pontosFinais = pontosDoItem;
+            CrescimentoPeixinho peixe = col.GetComponent<CrescimentoPeixinho>();
+            if (peixe != null)
+            {
+                peixe.Crescer();
+            }
 
             // Se o componente existir e o power-up estiver ativo, dobra o valor
             if (handler != null && handler.isPowerUpDobrar)
