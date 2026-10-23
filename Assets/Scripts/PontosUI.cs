@@ -23,10 +23,12 @@ public class PontosUI : MonoBehaviour
     {
         pontuacaoTotal = 0;
         AtualizarUI();
+        
     }
 
     void Update()
     {
+      
         // Lógica de ganho automático de pontos
         tempoAtual += Time.deltaTime;
         
@@ -47,7 +49,7 @@ public class PontosUI : MonoBehaviour
     {
         pontuacaoTotal = 0;
         AtualizarUI();
-        tempoAtual = 0f; // Reseta o tempo também
+        tempoAtual = 0f;
     }
 
     // Método para ajustar dinamicamente o intervalo
@@ -64,6 +66,11 @@ public class PontosUI : MonoBehaviour
 
     private void AtualizarUI()
     {
+           PlayerScript  player = new PlayerScript();
+         if(player.resetapt == true)
+        {
+            ResetarPontos();
+        }
         if (textoPontuacaoUI != null)
             textoPontuacaoUI.text = "Pontos: " + pontuacaoTotal;
     }

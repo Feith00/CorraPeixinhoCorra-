@@ -21,7 +21,8 @@ public class PlayerScript : MonoBehaviour
     [SerializeField] private Image[] coracoesUI; 
     [SerializeField] private Image[] telademorte;
     [SerializeField] private float tempotelademorte = 0.5f;
-    private bool isDead = false;
+    protected bool isDead = false;
+    public bool resetapt = false;
 
     private Rigidbody2D rb;
     private Vector2 movement;
@@ -210,7 +211,7 @@ public class PlayerScript : MonoBehaviour
 
         rb.linearVelocity = Vector2.zero;
         movement = Vector2.zero;
-
+        resetapt = true;
         MostrarTeladeMorte(true);
         yield break;
     }
@@ -220,12 +221,12 @@ public class PlayerScript : MonoBehaviour
         transform.position = startPosition;
         life = 3; 
         AtualizarCoracoes();
-
         MostrarTeladeMorte(false);
 
         canTakeDamage = true;
         isPowerUpInvincible = false; // Garante reset do powerup na morte
         isDead = false;
+        resetapt = false;
 
         if (damegeArea != null) damegeArea.SetActive(true);
         sprite.enabled = true;
