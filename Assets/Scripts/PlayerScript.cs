@@ -11,6 +11,11 @@ public class PlayerScript : MonoBehaviour
     [SerializeField] private float dashSpeed = 25f;
     [SerializeField] private float dashDuration = 0.15f;
     [SerializeField] private float dashCooldown = 0.5f;
+    
+    [Header("Efeitos Visuais")]
+    [SerializeField] private ParticleSystem particulaBolhas;
+    [SerializeField] private float duracaoFlashCooldown = 0.2f;
+    private Color corBrilhoDash = new Color(5f, 5f, 5f, 1f);
 
     [Header("Vida e Dano")]
     [SerializeField] private int life = 3;
@@ -32,6 +37,9 @@ public class PlayerScript : MonoBehaviour
     private float dashTimer;
     private float cooldownTimer;
     private bool canTakeDamage = true;
+    private bool aguardandoCooldownDash = false; // Julian
+    private Color corOriginalSprite = Color.white;//Julian
+
     
     // Nova variável para controlar a imortalidade do coletável
     private bool isPowerUpInvincible = false; 
@@ -43,6 +51,13 @@ public class PlayerScript : MonoBehaviour
 
         if (sprite == null) 
             sprite = GetComponent<SpriteRenderer>();
+
+        if (sprite != null)//Julian
+            corOriginalSprite = sprite.color;
+
+        if (particulaBolhas != null)//Julian
+            particulaBolhas.Stop();
+
         
         AtualizarCoracoes();
     }
@@ -65,8 +80,14 @@ public class PlayerScript : MonoBehaviour
         movement = movement.normalized;
 
         if (cooldownTimer > 0)
+        {
             cooldownTimer -= Time.deltaTime;
-
+            if (cooldownTimer <= 0 && aguardandoCooldownDash)
+            {
+                aguardandoCooldownDash = false;
+                StartCoroutine(FlashCooldownDash()); // Ativa o efeito pisca (Julian)
+            }
+        }
         if (Input.GetKeyDown(KeyCode.Space) && !isDashing && cooldownTimer <= 0)
         {
             if (movement != Vector2.zero)
@@ -74,6 +95,10 @@ public class PlayerScript : MonoBehaviour
                 isDashing = true;
                 dashTimer = dashDuration;
                 cooldownTimer = dashCooldown;
+                aguardandoCooldownDash = true; // Marca que entrou em cooldown (Julian)
+
+                if (particulaBolhas != null)
+                    particulaBolhas.Play();
             }
         }
     }
@@ -97,6 +122,9 @@ public class PlayerScript : MonoBehaviour
             if (dashTimer <= 0)
             {
                 isDashing = false;
+
+                if (particulaBolhas != null) //Julian
+                    particulaBolhas.Stop();
                 // Só reativa a área de dano se o player NÃO estiver sob efeito do power-up
                 if (canTakeDamage && !isPowerUpInvincible && damegeArea != null) 
                     damegeArea.SetActive(true);
@@ -110,6 +138,27 @@ public class PlayerScript : MonoBehaviour
             if (canTakeDamage && !isPowerUpInvincible && damegeArea != null && !damegeArea.activeSelf)
                 damegeArea.SetActive(true);
         }
+    }
+
+    IEnumerator FlashCooldownDash()
+    {
+        if (sprite == null) yield break;
+
+        // 1. Muda bruscamente para branco brilhante no exato milissegundo
+        sprite.color = corBrilhoDash;
+
+        float tempo = 0f;
+
+        // 2. Transita gradualmente de volta para a cor original nos 0.2s
+        while (tempo < duracaoFlashCooldown)
+        {
+            tempo += Time.deltaTime;
+            sprite.color = Color.Lerp(corBrilhoDash, corOriginalSprite, tempo / duracaoFlashCooldown);
+            yield return null;
+        }
+
+        // Garante que a cor fique perfeita ao final
+        sprite.color = corOriginalSprite;
     }
 
     public void TakeDamage()
@@ -211,7 +260,10 @@ public class PlayerScript : MonoBehaviour
 
         rb.linearVelocity = Vector2.zero;
         movement = Vector2.zero;
-        resetapt = true;
+
+        if (particulaBolhas != null) //Julian
+            particulaBolhas.Stop();
+
         MostrarTeladeMorte(true);
         yield break;
     }
@@ -230,6 +282,9 @@ public class PlayerScript : MonoBehaviour
 
         if (damegeArea != null) damegeArea.SetActive(true);
         sprite.enabled = true;
+
+        if (particulaBolhas != null) //Julian
+            particulaBolhas.Stop();
     }
 
     void MostrarTeladeMorte(bool mostrar)

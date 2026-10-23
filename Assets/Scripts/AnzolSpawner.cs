@@ -3,25 +3,52 @@ using UnityEngine;
 public class AnzolSpawner : MonoBehaviour
 {
     public GameObject prefabAnzol; // prefab com o AnzolController já configurado
+    public GameObject prefabIndicadorSeta; // ARRASTE O PREFAB DA SETA AQUI
     public Camera cameraJogo;
 
     [Header("Configuração de spawn")]
-    public float margemForaDaTela = 1f;   // quão longe fora da tela o anzol nasce
+    public float margemForaDaTela = 4f;   // quão longe fora da tela o anzol nasce
     public float margemDentroDaTela = 1f; // não deixa o ponto de parada ficar colado na borda
-    public float intervaloEntreSpawns = 1.5f;
 
-    
+    [Header("Dificuldade Progressiva")]
+    public float intervaloInicial = 1.5f; // Tempo inicial entre spawns
+    public float intervaloMinimo = 0.2f;  // Limite para o jogo não travar gerando anzóis demais
+    public float tempoParaDobrarVelocidade = 60f; // Tempo em segundos para a frequência dobrar (1 minuto)
+
+    [Header("Velocidade dos Anzóis")]
+    public float velocidadeMinima = 3f;   // Velocidade mais lenta de entrada
+    public float velocidadeMaxima = 8f;   // Velocidade mais rápida de entrada
+
+    private float timerSpawn = 0f;
+    private float tempoDeJogo = 0f;
 
     void Start()
     {
         if (cameraJogo == null) cameraJogo = Camera.main;
-        InvokeRepeating(nameof(SpawnarAnzol), 1f, intervaloEntreSpawns);
+    }
+
+    void Update()
+    {
+        // Conta o tempo total de partida
+        tempoDeJogo += Time.deltaTime;
+
+        // Calcula o intervalo dinâmico: reduz pela metade a cada 'tempoParaDobrarVelocidade' (60s)
+        float fatorAceleracao = Mathf.Pow(2f, -tempoDeJogo / tempoParaDobrarVelocidade);
+        float intervaloAtual = Mathf.Max(intervaloInicial * fatorAceleracao, intervaloMinimo);
+
+        // Timer manual para disparar os spawns
+        timerSpawn += Time.deltaTime;
+
+        if (timerSpawn >= intervaloAtual)
+        {
+            SpawnarAnzol();
+            timerSpawn = 0f;
+        }
     }
 
     void SpawnarAnzol()
     {
         float altura = cameraJogo.orthographicSize;
-        // O correto em 2D é multiplicar orthographicSize pela relação de aspecto:
         float largura = altura * cameraJogo.aspect; 
         Vector2 centro = cameraJogo.transform.position;
 
@@ -38,10 +65,24 @@ public class AnzolSpawner : MonoBehaviour
         GameObject obj = Instantiate(prefabAnzol, pontoSpawn, Quaternion.identity);
         AnzolController controlador = obj.GetComponent<AnzolController>();
         
-        // Define explicitamente os dados no controlador recém-criado:
-        controlador.pontoSpawn = pontoSpawn;
-        controlador.direcao = direcao;
-        controlador.distanciaParada = distancia;
+        if (controlador != null)
+        {
+            controlador.pontoSpawn = pontoSpawn;
+            controlador.direcao = direcao;
+            controlador.distanciaParada = distancia;
+            controlador.velocidade = Random.Range(velocidadeMinima, velocidadeMaxima);
+            // === CRIAÇÃO DO INDICADOR DE PERIGO CORRIGIDA ===
+            if (prefabIndicadorSeta != null)
+            {
+                GameObject indObj = Instantiate(prefabIndicadorSeta);
+                IndicadorPerigo indicador = indObj.GetComponent<IndicadorPerigo>();
+                if (indicador != null)
+                {
+                    // Agora passa o pontoSpawn e o pontoAlvo para traçar a linha perfeita!
+                    indicador.Configurar(controlador.pontaAnzol, pontoSpawn, pontoAlvo, direcao);
+                }
+            }
+        }
     }
 
     Vector2 ObterPontoSpawn(int borda, Vector2 centro, float largura, float altura)

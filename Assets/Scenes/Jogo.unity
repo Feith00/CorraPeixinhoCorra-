@@ -1616,10 +1616,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   prefabAnzol: {fileID: 4552181687778628622, guid: af426ac14685ff44fb49ebcab74a2306, type: 3}
+  prefabIndicadorSeta: {fileID: 3530282271716946980, guid: 08f0d7c5ba1c47e40954883f1b1b6d41, type: 3}
   cameraJogo: {fileID: 519420031}
   margemForaDaTela: 1
   margemDentroDaTela: 1
-  intervaloEntreSpawns: 1.5
+  intervaloInicial: 1.5
+  intervaloMinimo: 0.2
+  tempoParaDobrarVelocidade: 60
+  velocidadeMinima: 3
+  velocidadeMaxima: 8
 --- !u!4 &857393646
 Transform:
   m_ObjectHideFlags: 0
@@ -2430,6 +2435,8 @@ MonoBehaviour:
   dashSpeed: 25
   dashDuration: 0.15
   dashCooldown: 0.5
+  particulaBolhas: {fileID: 0}
+  duracaoFlashCooldown: 0.2
   life: 3
   damageCooldown: 1.5
   damegeArea: {fileID: 1270132548}

@@ -6,6 +6,14 @@ public class AnzolController : MonoBehaviour
     public Transform pontaAnzol;       
     public LineRenderer linha;         
     public BoxCollider2D colisorLinha; 
+    public SpriteRenderer spriteRendererAnzol;
+
+    [Header("Configuração de Comida")]
+    public Sprite spriteAnzolNormal;     // Sprite do anzol sem nada
+    public Sprite spriteAnzolComComida;  // Sprite do anzol com isca/comida
+    [Range(0f, 1f)] 
+    public float chanceDeVimComida = 0.3f; // 30% de chance de nascer com comida
+    public int pontosComida = 15;        // Pontos ganhos ao comer com Dash
 
     [Header("Movimento")]
     public float velocidade = 5f;
@@ -14,6 +22,9 @@ public class AnzolController : MonoBehaviour
     [Header("Configuração de Retorno Automático")]
     public float tempoEsperaMinimo = 2f; // Tempo que ele fica parado antes de voltar sozinho
 
+    [Header("Ajuste da Linha")]
+    public Transform pontoDeAmarra; // Arraste o objeto PontoDeAmarra aqui
+
     [HideInInspector] public Vector2 direcao;
     [HideInInspector] public float distanciaParada;
     [HideInInspector] public Vector2 pontoSpawn;
@@ -21,6 +32,23 @@ public class AnzolController : MonoBehaviour
     private float tempoEspera = 0f;
     private bool parou;
     private bool recolhendo;
+    private bool temComida;
+
+    void Start()
+    {
+        // Pega o SpriteRenderer da ponta caso não tenha sido arrastado no Inspector
+        if (spriteRendererAnzol == null && pontaAnzol != null)
+            spriteRendererAnzol = pontaAnzol.GetComponent<SpriteRenderer>();
+
+        // Sorteia se o anzol nasce com comida
+        temComida = Random.value <= chanceDeVimComida;
+
+        // Aplica o sprite correspondente
+        if (spriteRendererAnzol != null)
+        {
+            spriteRendererAnzol.sprite = temComida ? spriteAnzolComComida : spriteAnzolNormal;
+        }
+    }
 
     void Update()
     {
@@ -75,10 +103,11 @@ public class AnzolController : MonoBehaviour
 
     void AtualizarLinha()
     {
-        Vector2 ponta = pontaAnzol.position;
-        Vector2 meio = (pontoSpawn + ponta) / 2f;
-        float distancia = Vector2.Distance(pontoSpawn, ponta);
-        float angulo = Mathf.Atan2(ponta.y - pontoSpawn.y, ponta.x - pontoSpawn.x) * Mathf.Rad2Deg;
+        // Usa o PontoDeAmarra se ele existir, senão usa o próprio transform da ponta
+        Vector2 pontaReal = (pontoDeAmarra != null) ? (Vector2)pontoDeAmarra.position : (Vector2)pontaAnzol.position;
+        Vector2 meio = (pontoSpawn + pontaReal) / 2f;
+        float distancia = Vector2.Distance(pontoSpawn, pontaReal);
+        float angulo = Mathf.Atan2(pontaReal.y - pontoSpawn.y, pontaReal.x - pontoSpawn.x) * Mathf.Rad2Deg;
 
         pontaAnzol.rotation = Quaternion.Euler(0, 0, angulo + 90f);
 
@@ -96,7 +125,7 @@ public class AnzolController : MonoBehaviour
             if (linha.gameObject.activeSelf)
             {
                 linha.SetPosition(0, pontoSpawn);
-                linha.SetPosition(1, ponta);
+                linha.SetPosition(1, pontaReal);
             }
         }
     }
@@ -119,8 +148,27 @@ public class AnzolController : MonoBehaviour
         var player = other.GetComponentInParent<PlayerScript>();
         if (player == null) return;
 
-        if (!player.isDashing)
+        if (player.isDashing)
         {
+            // Se o peixe deu dash e o anzol tem comida
+            if (temComida)
+            {
+                temComida = false; // Remove a comida
+                
+                // Troca o sprite visual na hora para mostrar que a comida foi comida
+                if (spriteRendererAnzol != null && spriteAnzolNormal != null)
+                    spriteRendererAnzol.sprite = spriteAnzolNormal;
+
+                // Adiciona os 15 pontos no Singleton do PontosUI
+                if (PontosUI.Instance != null)
+                {
+                    PontosUI.Instance.AdicionarPontos(pontosComida);
+                }
+            }
+        }
+        else
+        {
+            // Sem dash: toma dano normal, mesmo se tiver comida
             player.TakeDamage();
         }
 
