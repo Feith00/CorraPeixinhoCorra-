@@ -27,7 +27,6 @@ public class PlayerScript : MonoBehaviour
     [SerializeField] private Image[] telademorte;
     [SerializeField] private float tempotelademorte = 0.5f;
     protected bool isDead = false;
-    public bool resetapt = false;
 
     private Rigidbody2D rb;
     private Vector2 movement;
@@ -278,7 +277,6 @@ public class PlayerScript : MonoBehaviour
         canTakeDamage = true;
         isPowerUpInvincible = false; // Garante reset do powerup na morte
         isDead = false;
-        resetapt = false;
 
         if (damegeArea != null) damegeArea.SetActive(true);
         sprite.enabled = true;

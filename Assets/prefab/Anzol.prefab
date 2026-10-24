@@ -227,6 +227,37 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!1 &1999672041011427846
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2847493574337007638}
+  m_Layer: 0
+  m_Name: PontoDeAmarra
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2847493574337007638
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1999672041011427846}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.23455715, y: 0.7088766, z: 0.030812616}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3227437943188055858}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &4552181687778628622
 GameObject:
   m_ObjectHideFlags: 0
@@ -254,7 +285,7 @@ Transform:
   m_GameObject: {fileID: 4552181687778628622}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -2.8654428, y: -0.79887664, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -277,7 +308,15 @@ MonoBehaviour:
   pontaAnzol: {fileID: 3227437943188055858}
   linha: {fileID: 2851048264308327578}
   colisorLinha: {fileID: 7790939334173303429}
+  spriteRendererAnzol: {fileID: 9220186252123363928}
+  spriteAnzolNormal: {fileID: 4635265827025253428, guid: d99de6598b057b64eab97b6f7f5b2f93, type: 3}
+  spriteAnzolComComida: {fileID: 5616369477815234934, guid: 2e32b428a62bf6949986d5c229061a61, type: 3}
+  chanceDeVimComida: 0.3
+  pontosComida: 15
   velocidade: 5
+  multiplicadorVelocidadeRetorno: 3
+  tempoEsperaMinimo: 2
+  pontoDeAmarra: {fileID: 2847493574337007638}
   direcao: {x: 0, y: 0}
   distanciaParada: 0
   pontoSpawn: {x: 0, y: 0}
@@ -338,7 +377,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 2847493574337007638}
   m_Father: {fileID: 767333782433265612}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &9220186252123363928

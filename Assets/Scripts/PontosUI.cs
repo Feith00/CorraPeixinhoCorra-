@@ -67,10 +67,7 @@ public class PontosUI : MonoBehaviour
     private void AtualizarUI()
     {
            PlayerScript  player = new PlayerScript();
-         if(player.resetapt == true)
-        {
-            ResetarPontos();
-        }
+      
         if (textoPontuacaoUI != null)
             textoPontuacaoUI.text = "Pontos: " + pontuacaoTotal;
     }
