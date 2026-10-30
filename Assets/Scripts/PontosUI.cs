@@ -66,7 +66,7 @@ public class PontosUI : MonoBehaviour
 
     private void AtualizarUI()
     {
-           PlayerScript  player = new PlayerScript();
+           PlayerScript  player = GameObject.FindAnyObjectByType<PlayerScript>();
       
         if (textoPontuacaoUI != null)
             textoPontuacaoUI.text = "Pontos: " + pontuacaoTotal;

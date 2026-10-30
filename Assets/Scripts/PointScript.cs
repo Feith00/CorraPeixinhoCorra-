@@ -12,7 +12,7 @@ public class PointScript : MonoBehaviour
             PlayerPointsHandler handler = col.GetComponent<PlayerPointsHandler>();
             
             int pontosFinais = pontosDoItem;
-            CrescimentoPeixinho peixe = col.GetComponent<CrescimentoPeixinho>();
+            MudarTamanho peixe = col.GetComponent<MudarTamanho>();
             if (peixe != null)
             {
                 peixe.Crescer();
