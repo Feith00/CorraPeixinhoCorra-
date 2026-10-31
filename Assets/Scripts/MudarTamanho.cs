@@ -4,9 +4,13 @@ using UnityEngine.UI;
 
 public class MudarTamanho : MonoBehaviour
 {
-    [SerializeField] private float quantidadeCrescimento = 0.1f;
-    [SerializeField] private float tamanhoMaximo = 3.0f;
+    [Header("Crescer")]
+    [SerializeField] private float quantidadeCrescimento = 0.4f;
+    [SerializeField] private float tamanhoMaximo = 5.0f;
+    
+    [Header("Diminuir")]
     [SerializeField] private float tamanhoMinimo = 0.8f; // Adicionado para limitar o menor tamanho
+     [SerializeField] private float quantidadeReducao = 0.8f;
     private float tamanhoAtual = 1.0f;
     public float TamanhoAtual => tamanhoAtual;
     
@@ -27,7 +31,7 @@ public class MudarTamanho : MonoBehaviour
         if (tamanhoAtual > tamanhoMinimo)
         {
             // Subtrai a mesma quantidade (ou você pode criar uma variável 'quantidadeReducao' se preferir)
-            tamanhoAtual = Mathf.Max(tamanhoAtual - quantidadeCrescimento, tamanhoMinimo);
+            tamanhoAtual = Mathf.Max(tamanhoAtual - quantidadeReducao, tamanhoMinimo);
             AplicarEscala();
             Debug.Log("Diminuiu! Novo tamanho base: " + tamanhoAtual);
         }
