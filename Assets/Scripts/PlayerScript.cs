@@ -170,6 +170,7 @@ public class PlayerScript : MonoBehaviour
 
         if (life <= 0)
         {
+
             StartCoroutine(Die());
             return;
         }
@@ -256,6 +257,7 @@ public class PlayerScript : MonoBehaviour
     {
         if (isDead) yield break;
         isDead = true;
+        Time.timeScale = 0f;
 
         rb.linearVelocity = Vector2.zero;
         movement = Vector2.zero;
@@ -273,6 +275,7 @@ public class PlayerScript : MonoBehaviour
         life = 3; 
         AtualizarCoracoes();
         MostrarTeladeMorte(false);
+        Time.timeScale = 1.0f;
 
         canTakeDamage = true;
         isPowerUpInvincible = false; // Garante reset do powerup na morte
