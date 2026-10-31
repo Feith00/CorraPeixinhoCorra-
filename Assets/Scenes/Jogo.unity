@@ -1671,7 +1671,7 @@ MonoBehaviour:
   prefabAnzol: {fileID: 4552181687778628622, guid: af426ac14685ff44fb49ebcab74a2306, type: 3}
   prefabIndicadorSeta: {fileID: 3530282271716946980, guid: 08f0d7c5ba1c47e40954883f1b1b6d41, type: 3}
   cameraJogo: {fileID: 519420031}
-  margemForaDaTela: 4
+  margemForaDaTela: 10
   margemDentroDaTela: 1
   intervaloInicial: 1.5
   intervaloMinimo: 0.2
@@ -2666,9 +2666,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a82865ae49e49b94488538204bd51850, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  quantidadeCrescimento: 0.5
+  quantidadeCrescimento: 0.4
   tamanhoMaximo: 5
-  tamanhoMinimo: 0.4
+  tamanhoMinimo: 0.8
+  quantidadeReducao: 0.8
 --- !u!1 &1344166081
 GameObject:
   m_ObjectHideFlags: 0
