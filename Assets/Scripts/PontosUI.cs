@@ -12,16 +12,26 @@ public class PontosUI : MonoBehaviour
     public float intervaloSegundos = 5f;     // Tempo em segundos entre os ganhos
     
     private float tempoAtual = 0f;
+    private PlayerScript player;
 
     void Awake()
     {
-        if (Instance == null) Instance = this;
-        else Destroy(gameObject);
+        if (Instance == null) 
+        {
+        Instance = this;
+        }
+        else
+        {
+         Destroy(this);
+         return;
+        }
+        
     }
 
     void Start()
     {
         pontuacaoTotal = 0;
+        BuscarPlayer();
         AtualizarUI();
         
     }
@@ -48,10 +58,14 @@ public class PontosUI : MonoBehaviour
     public void ResetarPontos()
     {
         pontuacaoTotal = 0;
-        AtualizarUI();
         tempoAtual = 0f;
+        BuscarPlayer();
+        AtualizarUI();
     }
-
+    private void BuscarPlayer()
+    {
+        player = GameObject.FindAnyObjectByType<PlayerScript>();
+    }
     // Método para ajustar dinamicamente o intervalo
     public void AlterarIntervalo(float novoIntervalo)
     {
@@ -66,7 +80,6 @@ public class PontosUI : MonoBehaviour
 
     private void AtualizarUI()
     {
-           PlayerScript  player = GameObject.FindAnyObjectByType<PlayerScript>();
       
         if (textoPontuacaoUI != null)
             textoPontuacaoUI.text = "Pontos: " + pontuacaoTotal;

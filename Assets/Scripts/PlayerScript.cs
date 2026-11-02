@@ -27,6 +27,7 @@ public class PlayerScript : MonoBehaviour
     [SerializeField] private Image[] telademorte;
     [SerializeField] private float tempotelademorte = 0.5f;
     protected bool isDead = false;
+    private Vector3 escalaInicial;
 
     private Rigidbody2D rb;
     private Vector2 movement;
@@ -45,6 +46,7 @@ public class PlayerScript : MonoBehaviour
 
     void Start()
     {
+        escalaInicial = transform.localScale;
         rb = GetComponent<Rigidbody2D>();
         startPosition = transform.position;
 
@@ -257,6 +259,7 @@ public class PlayerScript : MonoBehaviour
     {
         if (isDead) yield break;
         isDead = true;
+
         Time.timeScale = 0f;
 
         rb.linearVelocity = Vector2.zero;
@@ -271,31 +274,73 @@ public class PlayerScript : MonoBehaviour
 
     void ResurreccionarJogador()
     {
+    //Forçando a unity a voltar ao normal
+        Time.timeScale = 1f;
+    // Forçando o jogador a restar
+        transform.localScale = Vector3.one;
+
+    MudarTamanho scriptTamanho = GetComponent<MudarTamanho>();
+    if (scriptTamanho != null)
+    {
+        scriptTamanho.ResetaTamanho();
+    }
+    else
+    {
+        // Caso não use o script de tamanho neste objeto específico, força o padrão
+        transform.localScale = escalaInicial;
+    }
+    // Força a camera a recalcular a proporção da tela
+        if (Camera.main != null)
+    {
+        Camera.main.ResetAspect(); 
+    }
+    
+    // Resetando variaveris
+        
+        isDead = false;
         transform.position = startPosition;
         life = 3; 
-        AtualizarCoracoes();
-        MostrarTeladeMorte(false);
-        Time.timeScale = 1.0f;
-
         canTakeDamage = true;
         isPowerUpInvincible = false; // Garante reset do powerup na morte
-        isDead = false;
-
-        if (damegeArea != null) damegeArea.SetActive(true);
-        sprite.enabled = true;
-
+        escalaInicial = transform.localScale;
         if (particulaBolhas != null) //Julian
             particulaBolhas.Stop();
+        
+        if(sprite != null) sprite.enabled = true;
+        if(damegeArea != null) damegeArea.SetActive(true);
+        
+       
+        MostrarTeladeMorte(false);
+        AtualizarCoracoes();
+
+        if(PontosUI.Instance != null)
+        {
+            PontosUI.Instance.ResetarPontos();
+        }
+
+
+
+       
+      
     }
 
-    void MostrarTeladeMorte(bool mostrar)
+  void MostrarTeladeMorte(bool ativar)
     {
-        if (telademorte == null || telademorte.Length == 0) return;
-
-        foreach (var tela in telademorte)
+        if (telademorte != null)
         {
-            if (tela != null)
-                tela.gameObject.SetActive(mostrar);
+            for (int i = 0; i < telademorte.Length; i++)
+            {
+                if (telademorte[i] != null)
+                {
+                    telademorte[i].gameObject.SetActive(ativar);
+                    
+                    // Garante que a escala da imagem da UI não mude sozinha
+                    if (ativar)
+                    {
+                        telademorte[i].rectTransform.localScale = Vector3.one;
+                    }
+                }
+            }
         }
     }
 

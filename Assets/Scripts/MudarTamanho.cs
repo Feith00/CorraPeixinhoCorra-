@@ -12,8 +12,13 @@ public class MudarTamanho : MonoBehaviour
     [SerializeField] private float tamanhoMinimo = 0.8f; // Adicionado para limitar o menor tamanho
      [SerializeField] private float quantidadeReducao = 0.8f;
     private float tamanhoAtual = 1.0f;
+    public float tamanhoInicial;
     public float TamanhoAtual => tamanhoAtual;
-    
+
+    void Start()
+    {
+        tamanhoInicial = tamanhoAtual;
+    }
     // Função existente de crescimento
     public void Crescer()
     {
@@ -42,5 +47,10 @@ public class MudarTamanho : MonoBehaviour
     {
         float direcaoX = transform.localScale.x >= 0 ? 1f : -1f;
         transform.localScale = new Vector3(tamanhoAtual * direcaoX, tamanhoAtual, 1f);
+    }
+    public void ResetaTamanho()
+    {
+        tamanhoAtual = tamanhoInicial;
+        AplicarEscala();
     }
 }
