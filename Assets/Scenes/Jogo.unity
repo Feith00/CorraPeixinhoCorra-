@@ -792,7 +792,7 @@ Camera:
   m_ShutterSpeed: 0.005
   m_Aperture: 16
   m_FocusDistance: 10
-  m_FocalLength: 50
+  m_FocalLength: 10.069196
   m_BladeCount: 5
   m_Curvature: {x: 2, y: 11}
   m_BarrelClipping: 0.25
@@ -2487,7 +2487,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PlayerScript
   speed: 15
   dashSpeed: 25
-  dashDuration: 0.15
+  dashDuration: 0.4
   dashCooldown: 0.5
   particulaBolhas: {fileID: 1662409062}
   duracaoFlashCooldown: 0.2
