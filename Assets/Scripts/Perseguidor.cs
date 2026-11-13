@@ -66,5 +66,6 @@ public class Perseguidor : MonoBehaviour
     private void PararMovimento()
     {
         rb.linearVelocity = Vector2.zero;
+        Time.fixedDeltaTime = 1f;
     }
 }

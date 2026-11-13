@@ -57,6 +57,7 @@ public class PontosUI : MonoBehaviour
 
     public void ResetarPontos()
     {
+        Time.timeScale = 1f;
         pontuacaoTotal = 0;
         tempoAtual = 0f;
         BuscarPlayer();
