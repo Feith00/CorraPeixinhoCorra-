@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 2e32b428a62bf6949986d5c229061a61
+guid: b5e8267926dd90049bea4f52e5a9a9e2
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 5616369477815234934
-    second: anzol com isca_0
+      213: 4583254326339578255
+    second: anzol com isca 1_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -75,7 +75,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -100,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: anzol com isca_0
+      name: anzol com isca 1_0
       rect:
         serializedVersion: 2
-        x: 56
-        y: 73
-        width: 26
-        height: 47
+        x: 7
+        y: 0
+        width: 24
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 671f584884a51fd40800000000000000
-      internalID: 5616369477815234934
+      spriteID: f892eb4d68dfa9f30800000000000000
+      internalID: 4583254326339578255
       vertices: []
       indices: 
       edges: []
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      anzol com isca_0: 5616369477815234934
+      anzol com isca 1_0: 4583254326339578255
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

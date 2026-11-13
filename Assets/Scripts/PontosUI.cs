@@ -38,7 +38,6 @@ public class PontosUI : MonoBehaviour
 
     void Update()
     {
-      
         // Lógica de ganho automático de pontos
         tempoAtual += Time.deltaTime;
         
