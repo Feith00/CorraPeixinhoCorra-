@@ -549,7 +549,7 @@ SpriteRenderer:
   m_Size: {x: 1.2, y: 1.2}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 0
+  m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!1 &488899805
@@ -875,8 +875,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: db4104549863b6c48ba494e2de39b443, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  velocidade: 5
-  tagDojogador: Player
+  velocidadeMinima: 2
+  velocidadeMaxima: 12
+  aceleracaoPorSegundo: 0.8
+  tagDoJogador: Player
+  forcaKnockback: 50
+  duracaoKnockback: 0.6
+  velocidadeGiro: 1080
 --- !u!212 &525008085
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1310,7 +1315,7 @@ SpriteRenderer:
   m_Size: {x: 1.2, y: 1.2}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 0
+  m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!1 &755144906
@@ -1411,7 +1416,7 @@ SpriteRenderer:
   m_Size: {x: 1.2, y: 1.2}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 0
+  m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!1 &824918954
@@ -3171,7 +3176,7 @@ CircleCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
