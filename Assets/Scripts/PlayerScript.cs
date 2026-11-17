@@ -4,6 +4,36 @@ using UnityEngine.UI;
 
 public class PlayerScript : MonoBehaviour
 {
+    // UI multijogador
+    [HideInInspector] public PontosUI minhaPontuacaoUI;
+    public bool EstaMorto() => isDead;
+
+    public void ConfigurarUI(Image[] coracoes, PontosUI pontosUI)
+    {
+        coracoesUI = coracoes;
+        minhaPontuacaoUI = pontosUI;
+        AtualizarCoracoes();
+
+        if (minhaPontuacaoUI != null)
+            minhaPontuacaoUI.VincularJogador(this);
+    }
+
+    [Header("Controles Individuais")]
+    public KeyCode teclaCima = KeyCode.W;
+    public KeyCode teclaBaixo = KeyCode.S;
+    public KeyCode teclaEsquerda = KeyCode.A;
+    public KeyCode teclaDireita = KeyCode.D;
+    public KeyCode teclaDash = KeyCode.Space;
+
+    public void ConfigurarControles(KeyCode cima, KeyCode baixo, KeyCode esquerda, KeyCode direita, KeyCode dash)
+    {
+        teclaCima = cima;
+        teclaBaixo = baixo;
+        teclaEsquerda = esquerda;
+        teclaDireita = direita;
+        teclaDash = dash;
+    }
+
     [Header("Movimentação")]
     [SerializeField] private float speed = 15f;
 
@@ -23,7 +53,7 @@ public class PlayerScript : MonoBehaviour
     [SerializeField] private GameObject damegeArea; 
     [SerializeField] private SpriteRenderer sprite;
     [SerializeField] private float blinkSpeed = 0.1f;
-    [SerializeField] private Image[] coracoesUI; 
+    private Image[] coracoesUI; 
     [SerializeField] private Image[] telademorte;
     [SerializeField] private float tempotelademorte = 0.5f;
     protected bool isDead = false;
@@ -76,9 +106,16 @@ public class PlayerScript : MonoBehaviour
 
         ViraSprite();
 
-        movement.x = Input.GetAxisRaw("Horizontal");
-        movement.y = Input.GetAxisRaw("Vertical");
-        movement = movement.normalized;
+        // Lê apenas as 4 teclas configuradas para ESTE jogador
+        float moveX = 0f;
+        float moveY = 0f;
+
+        if (Input.GetKey(teclaDireita)) moveX += 1f;
+        if (Input.GetKey(teclaEsquerda)) moveX -= 1f;
+        if (Input.GetKey(teclaCima)) moveY += 1f;
+        if (Input.GetKey(teclaBaixo)) moveY -= 1f;
+
+        movement = new Vector2(moveX, moveY).normalized;
 
         if (cooldownTimer > 0)
         {
@@ -89,14 +126,15 @@ public class PlayerScript : MonoBehaviour
                 StartCoroutine(FlashCooldownDash()); // Ativa o efeito pisca (Julian)
             }
         }
-        if (Input.GetKeyDown(KeyCode.Space) && !isDashing && cooldownTimer <= 0)
+        // Lê a tecla de Dash individual deste jogador
+        if (Input.GetKeyDown(teclaDash) && !isDashing && cooldownTimer <= 0)
         {
             if (movement != Vector2.zero)
             {
                 isDashing = true;
                 dashTimer = dashDuration;
                 cooldownTimer = dashCooldown;
-                aguardandoCooldownDash = true; // Marca que entrou em cooldown (Julian)
+                aguardandoCooldownDash = true;
 
                 if (particulaBolhas != null)
                     particulaBolhas.Play();
@@ -260,42 +298,58 @@ public class PlayerScript : MonoBehaviour
         if (isDead) yield break;
         isDead = true;
 
-        Time.timeScale = 0f;
-
         rb.linearVelocity = Vector2.zero;
         movement = Vector2.zero;
 
-        if (particulaBolhas != null) //Julian
+        if (particulaBolhas != null)
             particulaBolhas.Stop();
 
-        MostrarTeladeMorte(true);
+        // Verifica quantos jogadores ainda estão vivos na cena
+        int jogadoresVivos = 0;
+        foreach (PlayerScript p in FindObjectsByType<PlayerScript>(FindObjectsSortMode.None))
+        {
+            if (!p.EstaMorto()) jogadoresVivos++;
+        }
+
+        if (jogadoresVivos == 0)
+        {
+            // Só pausa o jogo e abre a tela de morte quando TODOS morrerem (funciona em 1 a 4 players)
+            Time.timeScale = 0f;
+            MostrarTeladeMorte(true);
+        }
+        else
+        {
+            // Se ainda tem amigo jogando, apenas esconde este peixe até o fim da rodada
+            gameObject.SetActive(false);
+        }
+
         yield break;
     }
 
     void ResurreccionarJogador()
     {
-    //Forçando a unity a voltar ao normal
+        //Forçando a unity a voltar ao normal
         Time.timeScale = 1f;
-    // Forçando o jogador a restar
+        // Forçando o jogador a restar
         transform.localScale = Vector3.one;
 
-    MudarTamanho scriptTamanho = GetComponent<MudarTamanho>();
-    if (scriptTamanho != null)
-    {
-        scriptTamanho.ResetaTamanho();
-    }
-    else
-    {
-        // Caso não use o script de tamanho neste objeto específico, força o padrão
-        transform.localScale = escalaInicial;
-    }
-    // Força a camera a recalcular a proporção da tela
+        MudarTamanho scriptTamanho = GetComponent<MudarTamanho>();
+        if (scriptTamanho != null)
+        {
+            scriptTamanho.ResetaTamanho();
+        }
+        else
+        {
+            // Caso não use o script de tamanho neste objeto específico, força o padrão
+            transform.localScale = escalaInicial;
+        }
+        // Força a camera a recalcular a proporção da tela
         if (Camera.main != null)
-    {
-        Camera.main.ResetAspect(); 
-    }
+        {
+            Camera.main.ResetAspect(); 
+        }
     
-    // Resetando variaveris
+        // Resetando variaveris
         
         isDead = false;
         transform.position = startPosition;
@@ -313,15 +367,10 @@ public class PlayerScript : MonoBehaviour
         MostrarTeladeMorte(false);
         AtualizarCoracoes();
 
-        if(PontosUI.Instance != null)
+        if (minhaPontuacaoUI != null)
         {
-            PontosUI.Instance.ResetarPontos();
-        }
-
-
-
-       
-      
+            minhaPontuacaoUI.ResetarPontos();
+        }  
     }
 
   void MostrarTeladeMorte(bool ativar)

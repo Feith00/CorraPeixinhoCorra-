@@ -3,48 +3,34 @@ using TMPro;
 
 public class PontosUI : MonoBehaviour
 {
-    public static PontosUI Instance;
     private int pontuacaoTotal;
     public TMP_Text textoPontuacaoUI;
-    
-    // Configuração do ganho automático de pontos
-    public int pontosPorIntervalo = 10;      // Quantos pontos ganha a cada intervalo
-    public float intervaloSegundos = 5f;     // Tempo em segundos entre os ganhos
-    
+
+    [Header("Ganho Automático de Pontos")]
+    public int pontosPorIntervalo = 10;
+    public float intervaloSegundos = 5f;
+
     private float tempoAtual = 0f;
-    private PlayerScript player;
+    private PlayerScript donoDestaHUD;
 
-    void Awake()
+    public void VincularJogador(PlayerScript player)
     {
-        if (Instance == null) 
-        {
-        Instance = this;
-        }
-        else
-        {
-         Destroy(this);
-         return;
-        }
-        
-    }
-
-    void Start()
-    {
-        pontuacaoTotal = 0;
-        BuscarPlayer();
-        AtualizarUI();
-        
+        donoDestaHUD = player;
+        ResetarPontos();
     }
 
     void Update()
     {
-        // Lógica de ganho automático de pontos
+        // Só ganha pontos por tempo se o jogador desta HUD estiver vivo e ativo
+        if (donoDestaHUD == null || !donoDestaHUD.gameObject.activeInHierarchy || donoDestaHUD.EstaMorto())
+            return;
+
         tempoAtual += Time.deltaTime;
-        
+
         if (tempoAtual >= intervaloSegundos)
         {
             AdicionarPontos(pontosPorIntervalo);
-            tempoAtual = 0f; // Reseta o contador
+            tempoAtual = 0f;
         }
     }
 
@@ -56,32 +42,17 @@ public class PontosUI : MonoBehaviour
 
     public void ResetarPontos()
     {
-        Time.timeScale = 1f;
         pontuacaoTotal = 0;
         tempoAtual = 0f;
-        BuscarPlayer();
         AtualizarUI();
     }
-    private void BuscarPlayer()
-    {
-        player = GameObject.FindAnyObjectByType<PlayerScript>();
-    }
-    // Método para ajustar dinamicamente o intervalo
-    public void AlterarIntervalo(float novoIntervalo)
-    {
-        intervaloSegundos = novoIntervalo;
-    }
 
-    // Método para ajustar dinamicamente os pontos por intervalo
-    public void AlterarPontosPorIntervalo(int novosPontos)
-    {
-        pontosPorIntervalo = novosPontos;
-    }
+    public void AlterarIntervalo(float novoIntervalo) => intervaloSegundos = novoIntervalo;
+    public void AlterarPontosPorIntervalo(int novosPontos) => pontosPorIntervalo = novosPontos;
 
     private void AtualizarUI()
     {
-      
         if (textoPontuacaoUI != null)
-            textoPontuacaoUI.text = "Pontos: " + pontuacaoTotal;
+            textoPontuacaoUI.text = "PONTOS: " + pontuacaoTotal;
     }
 }

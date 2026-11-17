@@ -160,9 +160,9 @@ public class AnzolController : MonoBehaviour
                     spriteRendererAnzol.sprite = spriteAnzolNormal;
 
                 // Adiciona os 15 pontos no Singleton do PontosUI
-                if (PontosUI.Instance != null)
+                if (player.minhaPontuacaoUI != null)
                 {
-                    PontosUI.Instance.AdicionarPontos(pontosComida);
+                    player.minhaPontuacaoUI.AdicionarPontos(pontosComida);
                 }
             }
         }
