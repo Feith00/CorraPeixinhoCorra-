@@ -67,6 +67,6 @@
         "*.sln": "*.csproj",
         "*.slnx": "*.csproj"
     },
-    "dotnet.defaultSolution": "pexe.slnx",
+    "dotnet.defaultSolution": "CorraPeixinhoCorra-.slnx",
     "dotnet.enableWorkspaceBasedDevelopment": false
 }
