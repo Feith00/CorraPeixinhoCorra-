@@ -372,7 +372,7 @@ public class PlayerScript : MonoBehaviour
         if(damegeArea != null) damegeArea.SetActive(true);
         
        
-        MostrarTeladeMorte(false);
+        //MostrarTeladeMorte(false);
         AtualizarCoracoes();
 
         if (minhaPontuacaoUI != null)
