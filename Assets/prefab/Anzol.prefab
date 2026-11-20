@@ -309,7 +309,7 @@ MonoBehaviour:
   linha: {fileID: 2851048264308327578}
   colisorLinha: {fileID: 7790939334173303429}
   spriteRendererAnzol: {fileID: 9220186252123363928}
-  spriteAnzolNormal: {fileID: 4635265827025253428, guid: d99de6598b057b64eab97b6f7f5b2f93, type: 3}
+  spriteAnzolNormal: {fileID: 4635265827025253428, guid: bbdba22949876a646bd7ee1480e7052c, type: 3}
   spriteAnzolComComida: {fileID: 4583254326339578255, guid: b5e8267926dd90049bea4f52e5a9a9e2, type: 3}
   chanceDeVimComida: 0.3
   pontosComida: 15
@@ -433,7 +433,7 @@ SpriteRenderer:
   m_Size: {x: 1.375, y: 2}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!61 &5601011687710087686
