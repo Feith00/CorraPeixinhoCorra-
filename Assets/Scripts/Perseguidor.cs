@@ -15,7 +15,7 @@ public class Perseguidor : MonoBehaviour
     [SerializeField] private float velocidadeGiro = 1080f;
 
     private float velocidadeAtual;
-    private Transform transformJogador;
+    private PlayerScript jogadorAlvo; // Em vez de private Transform transformJogador;
     private Rigidbody2D rb;
     private Vector2 direcao;
 
@@ -56,15 +56,15 @@ public class Perseguidor : MonoBehaviour
         }
 
         // --- ESTADO 2: PERSEGUIÇÃO NORMAL ---
-        // Caso o alvo atual tenha sido destruído ou desativado (morreu), busca outro imediatamente
-        if (transformJogador == null || !transformJogador.gameObject.activeInHierarchy)
+        // Só troca de alvo se o jogador realmente morreu ou foi destruído
+        if (jogadorAlvo == null || jogadorAlvo.EstaMorto() || !jogadorAlvo.gameObject.activeInHierarchy)
         {
             EscolherNovoAlvo(null);
         }
 
         velocidadeAtual = Mathf.MoveTowards(velocidadeAtual, velocidadeMaxima, aceleracaoPorSegundo * Time.deltaTime);
 
-        if (transformJogador != null)
+        if (jogadorAlvo != null)
         {
             CalcularDirecaoAteJogador();
         }
@@ -79,7 +79,7 @@ public class Perseguidor : MonoBehaviour
             return;
         }
 
-        if (transformJogador != null)
+        if (jogadorAlvo != null)
         {
             MoverEmDirecaoAoJogador();
         }
@@ -123,45 +123,39 @@ public class Perseguidor : MonoBehaviour
 
     private void EscolherNovoAlvo(PlayerScript jogadorParaEvitar)
     {
-        GameObject[] todosJogadores = GameObject.FindGameObjectsWithTag(tagDoJogador);
+        // Busca diretamente os scripts PlayerScript na cena (ignora objetos filhos como damegeArea)
+        PlayerScript[] todosJogadores = FindObjectsByType<PlayerScript>(FindObjectsSortMode.None);
 
         if (todosJogadores.Length == 0)
         {
-            transformJogador = null;
-            Debug.LogWarning($"Aviso: Nenhum objeto com a tag '{tagDoJogador}' foi encontrado na cena!");
+            jogadorAlvo = null;
             return;
         }
 
-        // Lista com todos os jogadores válidos que NÃO são o último atacante
-        List<Transform> candidatos = new List<Transform>();
+        List<PlayerScript> candidatos = new List<PlayerScript>();
 
-        foreach (GameObject obj in todosJogadores)
+        foreach (PlayerScript player in todosJogadores)
         {
-            if (!obj.activeInHierarchy) continue;
+            if (player.EstaMorto() || !player.gameObject.activeInHierarchy) continue;
 
-            PlayerScript script = obj.GetComponent<PlayerScript>();
-            
-            // Adiciona à lista se não houver ninguém para evitar OU se for um jogador diferente
-            if (jogadorParaEvitar == null || script != jogadorParaEvitar)
+            if (jogadorParaEvitar == null || player != jogadorParaEvitar)
             {
-                candidatos.Add(obj.transform);
+                candidatos.Add(player);
             }
         }
 
-        // Caso 1 (Multiplayer com 2 a 4 jogadores): Sorteia entre os outros jogadores
         if (candidatos.Count > 0)
         {
             int indiceAleatorio = Random.Range(0, candidatos.Count);
-            transformJogador = candidatos[indiceAleatorio];
+            jogadorAlvo = candidatos[indiceAleatorio];
         }
-        // Caso 2 (Single Player ou os outros jogadores morreram): Volta a perseguir o único jogador disponível
         else
         {
-            foreach (GameObject obj in todosJogadores)
+            foreach (PlayerScript player in todosJogadores)
             {
-                if (obj.activeInHierarchy)
+                if (!player.EstaMorto() && player.gameObject.activeInHierarchy)
                 {
-                    transformJogador = obj.transform;
+                    jogadorAlvo = player;
                     break;
                 }
             }
@@ -170,7 +164,7 @@ public class Perseguidor : MonoBehaviour
 
     private void CalcularDirecaoAteJogador()
     {
-        direcao = ((Vector2)transformJogador.position - (Vector2)transform.position).normalized;
+        direcao = ((Vector2)jogadorAlvo.transform.position - (Vector2)transform.position).normalized;
     }
 
     private void MoverEmDirecaoAoJogador()
