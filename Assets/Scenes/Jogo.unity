@@ -2246,11 +2246,11 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 673524053}
   - {fileID: 303165349}
   - {fileID: 1978418807}
   - {fileID: 1385670849}
   - {fileID: 1990264704}
+  - {fileID: 673524053}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -5034,6 +5034,11 @@ MonoBehaviour:
     esquerda: 260
     direita: 262
     dash: 8
+  painelGameOver: {fileID: 673524052}
+  objetosSpawnersParaParar:
+  - {fileID: 857393644}
+  - {fileID: 110224963}
+  - {fileID: 1642866041}
 --- !u!4 &1746256872
 Transform:
   m_ObjectHideFlags: 0

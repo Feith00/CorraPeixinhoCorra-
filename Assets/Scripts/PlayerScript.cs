@@ -95,14 +95,14 @@ public class PlayerScript : MonoBehaviour
 
     void Update()
     {
-        if (isDead)
-        {
+        if (isDead) return;
+        /*{
             if (Input.GetKeyDown(KeyCode.Space))
             {
                 ResurreccionarJogador();
             }
             return;
-        }
+        }*/
 
         ViraSprite();
 
@@ -303,7 +303,15 @@ public class PlayerScript : MonoBehaviour
 
         if (particulaBolhas != null)
             particulaBolhas.Stop();
+        gameObject.SetActive(false);
 
+        if (MultiplayerManager.Instance != null)
+        {
+            MultiplayerManager.Instance.VerificarFimDeJogo();
+        }
+
+        yield break;
+        /*
         // Verifica quantos jogadores ainda estão vivos na cena
         int jogadoresVivos = 0;
         foreach (PlayerScript p in FindObjectsByType<PlayerScript>(FindObjectsSortMode.None))
@@ -323,7 +331,7 @@ public class PlayerScript : MonoBehaviour
             gameObject.SetActive(false);
         }
 
-        yield break;
+        yield break;*/
     }
 
     void ResurreccionarJogador()
@@ -373,7 +381,7 @@ public class PlayerScript : MonoBehaviour
         }  
     }
 
-  void MostrarTeladeMorte(bool ativar)
+    /*void MostrarTeladeMorte(bool ativar)
     {
         if (telademorte != null)
         {
@@ -391,7 +399,7 @@ public class PlayerScript : MonoBehaviour
                 }
             }
         }
-    }
+    }*/
 
     void ViraSprite()
     {
