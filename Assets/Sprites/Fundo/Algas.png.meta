@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 4943fc9a2d9aad14db70536cda17ead2
+guid: d45ae4e2855e882459def00827f353f7
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -856500914573272826
-    second: Life2_0
+      213: -3337333439850790950
+    second: Algas_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -46,12 +46,12 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 16
+  spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -100,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Life2_0
+      name: Algas_0
       rect:
         serializedVersion: 2
-        x: 2
-        y: 5
-        width: 28
-        height: 24
+        x: 0
+        y: 0
+        width: 240
+        height: 55
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 6091015c4f81d14f0800000000000000
-      internalID: -856500914573272826
+      spriteID: adf39ac1be86fa1d0800000000000000
+      internalID: -3337333439850790950
       vertices: []
       indices: 
       edges: []
@@ -125,7 +125,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 5e97eb03825dee720800000000000000
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Life2_0: -856500914573272826
+      Algas_0: -3337333439850790950
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
