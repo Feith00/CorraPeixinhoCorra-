@@ -55,4 +55,10 @@ public class PontosUI : MonoBehaviour
         if (textoPontuacaoUI != null)
             textoPontuacaoUI.text = "PONTOS: " + pontuacaoTotal;
     }
+    
+    //Disponibiliza a pontuacao para que outro script possa pegar
+    public int PontuacaoTotal
+    {
+        get { return pontuacaoTotal; }
+    }
 }

@@ -3,7 +3,7 @@ using UnityEngine;
 public class anzoMovimento : MonoBehaviour
 {
     [Header("Configurações da Movimentação")]
-    public Rigidbody2D rigidbody2D;
+    public Rigidbody2D rb;
     public float velocidade = 5f;
     public float direcaoY = 1f;
     public float direcaoX = 1f;
@@ -13,7 +13,7 @@ public class anzoMovimento : MonoBehaviour
     void Start()
     {
         direcao = new Vector2(direcaoX,direcaoY).normalized;
-        rigidbody2D = GetComponent<Rigidbody2D>();
+        rb = GetComponent<Rigidbody2D>();
         
     }
 
@@ -24,6 +24,6 @@ public class anzoMovimento : MonoBehaviour
     }
     void Movimento()
     {
-        rigidbody2D.linearVelocity = new Vector2(direcao.x *velocidade, direcao.y * velocidade );
+        rb.linearVelocity = new Vector2(direcao.x *velocidade, direcao.y * velocidade );
     }
 }
