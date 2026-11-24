@@ -6,6 +6,8 @@ public class MenuManager : MonoBehaviour
     [Header("Painéis do Menu")]
     [SerializeField] private GameObject painelPrincipal;
     [SerializeField] private GameObject painelJogadores;
+    [SerializeField] private GameObject painelNome;
+    [SerializeField] private GameObject painelRecords;
 
     private void Start()
     {
@@ -13,11 +15,21 @@ public class MenuManager : MonoBehaviour
         VoltarParaMenuPrincipal();
     }
 
+    public void AbrirRecords()
+    {
+        if (painelPrincipal != null) painelPrincipal.SetActive(false);
+        if (painelJogadores != null) painelJogadores.SetActive(false);
+        if (painelRecords != null) painelRecords.SetActive(true);
+        if (painelNome != null) painelNome.SetActive(false);
+    }
+
     // Conecte este método ao botão "JOGAR" do PainelPrincipal
     public void AbrirSelecaoJogadores()
     {
         if (painelPrincipal != null) painelPrincipal.SetActive(false);
         if (painelJogadores != null) painelJogadores.SetActive(true);
+        if (painelRecords != null) painelRecords.SetActive(false);
+        if (painelNome != null) painelNome.SetActive(false);
     }
 
     // Conecte este método ao botão "VOLTAR" do PainelJogadores
@@ -25,6 +37,16 @@ public class MenuManager : MonoBehaviour
     {
         if (painelPrincipal != null) painelPrincipal.SetActive(true);
         if (painelJogadores != null) painelJogadores.SetActive(false);
+        if (painelRecords != null) painelRecords.SetActive(false);
+        if (painelNome != null) painelNome.SetActive(false);
+    }
+
+    public void Nomes()
+    {
+        if (painelPrincipal != null) painelPrincipal.SetActive(false);
+        if (painelJogadores != null) painelJogadores.SetActive(false);
+        if (painelRecords != null) painelRecords.SetActive(false);
+        if (painelNome != null) painelNome.SetActive(true);
     }
 
     // Conecte este método aos botões 1, 2, 3 e 4 jogadores
@@ -35,6 +57,11 @@ public class MenuManager : MonoBehaviour
         PlayerPrefs.SetInt("QuantidadeJogadores", quantidade);
         PlayerPrefs.Save();
 
+        Nomes();
+    }   
+
+    public void Continuar()
+    {
         SceneManager.LoadScene("Jogo");
     }
 

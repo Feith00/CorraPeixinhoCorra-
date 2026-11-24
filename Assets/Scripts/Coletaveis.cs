@@ -22,7 +22,7 @@ public class GeradorColetavel : MonoBehaviour
         cronometro = tempoGeracao;
     }
 
-    async Task Update()
+    void Update()
     {
         cronometro -= Time.deltaTime;
 
@@ -36,17 +36,12 @@ public class GeradorColetavel : MonoBehaviour
                 float offsetY = Random.Range(-varianciaY, varianciaY);
                 
                 posicaoFinal += new Vector3(offsetX, offsetY, 0);
-                
-                
-
             }
 
             GameObject coletavel = Instantiate(prefabColetavel, posicaoFinal, Quaternion.identity);
             Destroy(coletavel, tempodeVida);
             
             cronometro = tempoGeracao;
-
-
         }
     }
 }

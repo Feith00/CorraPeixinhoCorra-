@@ -54,8 +54,7 @@ public class PlayerScript : MonoBehaviour
     [SerializeField] private SpriteRenderer sprite;
     [SerializeField] private float blinkSpeed = 0.1f;
     private Image[] coracoesUI; 
-    [SerializeField] private Image[] telademorte;
-    [SerializeField] private float tempotelademorte = 0.5f;
+
     protected bool isDead = false;
     private Vector3 escalaInicial;
 
@@ -83,10 +82,10 @@ public class PlayerScript : MonoBehaviour
         if (sprite == null) 
             sprite = GetComponent<SpriteRenderer>();
 
-        if (sprite != null)//Julian
+        if (sprite != null)
             corOriginalSprite = sprite.color;
 
-        if (particulaBolhas != null)//Julian
+        if (particulaBolhas != null)
             particulaBolhas.Stop();
 
         
@@ -254,12 +253,6 @@ public class PlayerScript : MonoBehaviour
         if (!isDashing && damegeArea != null) 
             damegeArea.SetActive(true);
     }
-    // -----------------------------------------------------
-
-    void AltualizarCoracoes() // Mantido o nome original do seu script (caso use em outros cantos)
-    {
-        AtualizarCoracoes();
-    }
 
     void AtualizarCoracoes()
     {
@@ -298,6 +291,8 @@ public class PlayerScript : MonoBehaviour
         if (isDead) yield break;
         isDead = true;
 
+        GetComponent<RegistrarRecorde>()?.RegistrarPontuacaoFinal();
+
         rb.linearVelocity = Vector2.zero;
         movement = Vector2.zero;
 
@@ -311,9 +306,9 @@ public class PlayerScript : MonoBehaviour
         }
 
         yield break;
-        /*
+        
         // Verifica quantos jogadores ainda estão vivos na cena
-        int jogadoresVivos = 0;
+        /* int jogadoresVivos = 0;
         foreach (PlayerScript p in FindObjectsByType<PlayerScript>(FindObjectsSortMode.None))
         {
             if (!p.EstaMorto()) jogadoresVivos++;
@@ -331,7 +326,7 @@ public class PlayerScript : MonoBehaviour
             gameObject.SetActive(false);
         }
 
-        yield break;*/
+        yield break; */
     }
 
     void ResurreccionarJogador()
@@ -358,7 +353,6 @@ public class PlayerScript : MonoBehaviour
         }
     
         // Resetando variaveris
-        
         isDead = false;
         transform.position = startPosition;
         life = 3; 
@@ -380,26 +374,6 @@ public class PlayerScript : MonoBehaviour
             minhaPontuacaoUI.ResetarPontos();
         }  
     }
-
-    /*void MostrarTeladeMorte(bool ativar)
-    {
-        if (telademorte != null)
-        {
-            for (int i = 0; i < telademorte.Length; i++)
-            {
-                if (telademorte[i] != null)
-                {
-                    telademorte[i].gameObject.SetActive(ativar);
-                    
-                    // Garante que a escala da imagem da UI não mude sozinha
-                    if (ativar)
-                    {
-                        telademorte[i].rectTransform.localScale = Vector3.one;
-                    }
-                }
-            }
-        }
-    }*/
 
     void ViraSprite()
     {
