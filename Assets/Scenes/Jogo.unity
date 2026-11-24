@@ -132,7 +132,7 @@ GameObject:
   - component: {fileID: 110224966}
   - component: {fileID: 110224967}
   - component: {fileID: 110224968}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: PowerUps
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -239,7 +239,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 148384258}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Spawn_P2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -987,8 +987,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -1350065955
+  m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -1128,7 +1128,7 @@ GameObject:
   - component: {fileID: 488899808}
   - component: {fileID: 488899807}
   - component: {fileID: 488899810}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Tempo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1191,8 +1191,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -1350065955
+  m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: -602016743835836975, guid: 99cbda89dbc8c584fafd5a3134b4767c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -1420,7 +1420,7 @@ GameObject:
   - component: {fileID: 525008084}
   - component: {fileID: 525008087}
   - component: {fileID: 525008088}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Perseguidor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1487,15 +1487,15 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -1350065955
+  m_SortingLayer: 2
   m_SortingOrder: 4
-  m_Sprite: {fileID: 4635265827025253428, guid: bbdba22949876a646bd7ee1480e7052c, type: 3}
+  m_Sprite: {fileID: -6586008652518143419, guid: 32a02daf3e091144287e09ce14569487, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 10.24, y: 10.24}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -1510,8 +1510,8 @@ Transform:
   m_GameObject: {fileID: 525008083}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -44.2, y: -29.5, z: 0}
-  m_LocalScale: {x: 1.1636106, y: 1.0958177, z: 1}
+  m_LocalPosition: {x: -46.7686, y: -28.6049, z: 0}
+  m_LocalScale: {x: 0.59786314, y: 0.56303114, z: 0.5138}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -1577,17 +1577,17 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -0.03861046, y: -0.010247409}
   m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
+    border: {x: 0, y: 0.04, z: 0, w: 0.02}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.375, y: 2}
-    newSize: {x: 1, y: 1}
+    oldSize: {x: 9.08, y: 3.36}
+    newSize: {x: 10.24, y: 10.24}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 9.069384, y: 3.3983793}
   m_EdgeRadius: 0
 --- !u!1 &526544676
 GameObject:
@@ -1599,7 +1599,7 @@ GameObject:
   m_Component:
   - component: {fileID: 526544678}
   - component: {fileID: 526544677}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: ui
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1673,7 +1673,7 @@ MonoBehaviour:
   m_Intensity: 1
   m_LightVolumeIntensity: 1
   m_LightVolumeEnabled: 0
-  m_ApplyToSortingLayers: 00000000
+  m_ApplyToSortingLayers: 0000000041ab06abdda087af
   m_LightCookieSprite: {fileID: 0}
   m_DeprecatedPointLightCookieSprite: {fileID: 0}
   m_LightOrder: 0
@@ -1778,7 +1778,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 4440984003475394206, guid: 42876681530e3184aa45f9463565e686, type: 3}
+  m_Sprite: {fileID: 4440984003475394206, guid: b72014f3e67275948874d4b56f8ba036, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1806,7 +1806,7 @@ GameObject:
   m_Component:
   - component: {fileID: 677643713}
   - component: {fileID: 677643712}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Algas_0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1856,7 +1856,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingOrder: -5
   m_Sprite: {fileID: -3337333439850790950, guid: d45ae4e2855e882459def00827f353f7, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -2245,7 +2245,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 708719235}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Spawns
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2575,9 +2575,9 @@ GameObject:
   m_Component:
   - component: {fileID: 857393646}
   - component: {fileID: 857393645}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Anzol Spawner
-  m_TagString: Untagged
+  m_TagString: Anzol Spawner
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2613,7 +2613,7 @@ Transform:
   m_GameObject: {fileID: 857393644}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.7890255, y: 3.8713558, z: 0.03532104}
+  m_LocalPosition: {x: 3.7890255, y: 3.8713558, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2631,7 +2631,7 @@ GameObject:
   - component: {fileID: 882436622}
   - component: {fileID: 882436625}
   - component: {fileID: 882436624}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: 2X pontos
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2679,8 +2679,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -1350065955
+  m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: -4260987431434717149, guid: 94b9ca6f0e63cf846899d83449e05e17, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -3177,7 +3177,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1075988248}
   - component: {fileID: 1075988249}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Collider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3956,7 +3956,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1326014175}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Spawn_P3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4124,7 +4124,7 @@ GameObject:
   - component: {fileID: 1351919804}
   - component: {fileID: 1351919803}
   - component: {fileID: 1351919806}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Imortal
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4185,8 +4185,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -1350065955
+  m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: 6689578847312227734, guid: 7c5c3cac626928140ae7e95602b21be3, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -4443,7 +4443,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1403626427}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Spawn_P1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4688,7 +4688,7 @@ GameObject:
   - component: {fileID: 1598867994}
   - component: {fileID: 1598867998}
   - component: {fileID: 1598867997}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Boia
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4750,8 +4750,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -1350065955
+  m_SortingLayer: 2
   m_SortingOrder: 4
   m_Sprite: {fileID: 831255879991034694, guid: d91ef0cf367634444a99620327454ef9, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -4857,7 +4857,7 @@ GameObject:
   - component: {fileID: 1642866047}
   - component: {fileID: 1642866046}
   - component: {fileID: 1642866045}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Coletavel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4927,8 +4927,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -1350065955
+  m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: -7793339917793914040, guid: 7782260766ceb82489a6932323c538cc, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -5172,7 +5172,7 @@ GameObject:
   - component: {fileID: 1742238989}
   - component: {fileID: 1742238988}
   - component: {fileID: 1742238987}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: EventSystem
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5250,7 +5250,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1746256872}
   - component: {fileID: 1746256871}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: MultiplayerManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5353,7 +5353,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1786982430}
   - component: {fileID: 1786982429}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: FundoAzul_0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5403,7 +5403,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -10
   m_Sprite: {fileID: -6458987512733863271, guid: 7d48553e6d5945f4bbef92ba7544c17c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -5844,7 +5844,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1902730709}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Spawn_P4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6299,7 +6299,7 @@ GameObject:
   - component: {fileID: 2106869371}
   - component: {fileID: 2106869373}
   - component: {fileID: 2106869374}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Diminuir
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6347,8 +6347,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -1350065955
+  m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
   m_Color: {r: 0.8490566, g: 0, b: 0.58179, a: 1}

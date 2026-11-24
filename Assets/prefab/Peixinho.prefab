@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 2637847833967477106}
   - component: {fileID: 8677449593502597568}
   - component: {fileID: 1579411245058069695}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Peixinho
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -114,8 +114,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -1350065955
+  m_SortingLayer: 2
   m_SortingOrder: 5
   m_Sprite: {fileID: 6317363472572378018, guid: a2889de78221f0e4fa2801a6356e323c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -349,7 +349,7 @@ GameObject:
   - component: {fileID: 6343053150018020138}
   - component: {fileID: 7593440690847210713}
   - component: {fileID: 2548942409049266151}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: BolhasDash
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5236,7 +5236,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1575308282510419169}
   - component: {fileID: 3038564211524619083}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: AreaDeDano
   m_TagString: Untagged
   m_Icon: {fileID: 0}

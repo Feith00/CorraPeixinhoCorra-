@@ -6,14 +6,16 @@ TagManager:
   tags:
   - Parede
   - PowerUp
+  - Anzol Spawner
+  - Anzol
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - fundo
   - Water
   - UI
-  - 
+  - jogo
   - 
   - 
   - 
@@ -42,6 +44,12 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: fundo
+    uniqueID: 2869340993
+    locked: 0
+  - name: jogo
+    uniqueID: 2944901341
     locked: 0
   m_RenderingLayers:
   - Default

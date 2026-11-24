@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 7790939334173303429}
   - component: {fileID: 7422658039692517845}
   - component: {fileID: 767972745707823249}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Linha
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -236,7 +236,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2847493574337007638}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: PontoDeAmarra
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -270,7 +270,7 @@ GameObject:
   - component: {fileID: 8122887356565872365}
   - component: {fileID: 8801509840493632080}
   - component: {fileID: 8988313794426155696}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Anzol
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -310,7 +310,7 @@ MonoBehaviour:
   linha: {fileID: 2851048264308327578}
   colisorLinha: {fileID: 7790939334173303429}
   spriteRendererAnzol: {fileID: 9220186252123363928}
-  spriteAnzolNormal: {fileID: 4635265827025253428, guid: bbdba22949876a646bd7ee1480e7052c, type: 3}
+  spriteAnzolNormal: {fileID: 4635265827025253428, guid: d99de6598b057b64eab97b6f7f5b2f93, type: 3}
   spriteAnzolComComida: {fileID: 4583254326339578255, guid: b5e8267926dd90049bea4f52e5a9a9e2, type: 3}
   chanceDeVimComida: 0.3
   pontosComida: 15
@@ -389,8 +389,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -1350065955
+  m_SortingLayer: 2
   m_SortingOrder: 4
   m_Sprite: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -414,9 +414,9 @@ GameObject:
   - component: {fileID: 3227437943188055858}
   - component: {fileID: 9220186252123363928}
   - component: {fileID: 5601011687710087686}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: AnzolSprite
-  m_TagString: Untagged
+  m_TagString: Anzol
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -489,7 +489,7 @@ SpriteRenderer:
   m_Size: {x: 1.375, y: 2}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 0
+  m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!61 &5601011687710087686
